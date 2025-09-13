@@ -1,47 +1,57 @@
-Microservices Full Project
+# Microservices Full Project
 
-This is a full microservice-based setup using Spring Boot. It includes multiple services like API Gateway, Eureka server, Config server, and domain modules (Employee and Employee Address) to demonstrate service discovery, centralized configuration, routing, and modular communication.
+A full microservices ecosystem composed of multiple Spring Boot services, including API Gateway, Eureka Discovery, Config Server, and domain services like Employee & Employee Address. This setup demonstrates microservice communication, centralized configuration, service discovery, and API routing.
 
-📂 Repository Structure
+---
 
-employee/ — Employee domain service
-employeeaddress/ — Employee Address domain service
-employeeApiGateway/ — API Gateway for routing requests
-employeeEureka/ — Eureka server for service discovery
-employeeconfig-server/ — Config server for centralized configurations
-pom.xml — Parent Maven file managing modules
+## 📂 Repository Structure
 
-🚀 Features
+- `employee` — The Employee domain service, which handles employee data.  
+- `employeeaddress` — The Employee Address domain service, handling address-related data for employees.  
+- `employeeApiGateway` — API Gateway service, routing incoming requests to appropriate microservices.  
+- `employeeEureka` — Eureka Server for service discovery and registry.  
+- `employeeconfig-server` — Configuration Server to provide centralized configuration for all microservices.  
+- `pom.xml` — Parent/project-level configuration (aggregates modules).
 
-Centralized configuration via Config Server
-Service discovery using Eureka
-API routing through Gateway
-Domain-based microservices for Employee and Address data
-Modular architecture for independent deployment and scaling
+---
 
-🛠️ Tech Stack & Dependencies
+## 🚀 Features
 
-Java + Spring Boot
-Spring Cloud components (Eureka, Gateway, Config Server)
-Maven for build & dependency management
-.properties or YAML configuration files
+- Centralized Configuration using a Config Server  
+- Service Discovery with Eureka  
+- API Routing via API Gateway  
+- Domain Services for Employee and Employee Address  
+- Modular structure allowing independent development and deployment of services  
 
-⚙️ How to Run
+---
 
-Clone the repository:
-git clone https://github.com/saikrishnavelthapu543/Microservices-FullProject.git
-Build all modules with Maven:
+## 🛠️ Tech Stack & Dependencies
+
+- Java (Spring Boot for each microservice)  
+- Spring Cloud Ecosystem: Eureka, Gateway, Config Server  
+- Maven for building, dependency management, and module setup  
+- Properties / YAML configuration files managed via Config Server  
+
+---
+
+## ⚙️ How to Run
+
+1. Clone the repository:  
+   ```bash
+   git clone https://github.com/saikrishnavelthapu543/Microservices-FullProject.git
+Navigate into each service and build using Maven (or from the root if using a multi-module setup):
 mvn clean install
-Start services in this order:
+Start services in this order (or via scripts if made):
 Config Server
 Eureka Server
-Employee & Employee Address services
+Domain Services (Employee & Employee Address)
 API Gateway
-Use Gateway endpoints to communicate with underlying domain services.
+Configure environment/application properties (if needed) in application.properties or via the Config Server.
+Use API Gateway URLs to access services (routes defined by Gateway) and test endpoints.
 
-🔍 Usage Examples
+🔍 Example Usage
 
-Access employee details via API Gateway (e.g. GET /employee/{id})
-Add or update employee address through Address service (via API Gateway)
-View services registered in Eureka dashboard
-Fetch configuration values from Config Server
+Call endpoints via API Gateway (e.g. GET /employee/{id}, POST /employeeaddress)
+Add / update / delete data through Employee or Employee Address service
+See service discovery dashboard (Eureka) to confirm services are up
+View config server responses to verify centralized configuration
